@@ -1,5 +1,6 @@
 #include "game.hpp"
 #include <iostream>
+#include "scene_reader.hpp"
 
 
 
@@ -11,4 +12,6 @@ Game::~Game() {
 
 void Game::start() {
     std::cout << "Game started\n";
+    std::cout << SceneReader::readData("../data/scenes/introduction.json")->getTitle() << std::endl;
+
 }
