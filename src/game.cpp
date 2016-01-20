@@ -12,6 +12,7 @@ Game::~Game() {
 
 void Game::start() {
     std::cout << "Game started\n";
-    std::cout << SceneReader::readData("../data/scenes/introduction.json")->getTitle() << std::endl;
+
+    auto scene = SceneReader::readData("../data/scenes/introduction.json");
 
 }

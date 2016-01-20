@@ -1,0 +1,8 @@
+{
+    "type" : "Antagonist",
+    "description" : "It is Big, Bad and Evil.",
+    "hp" : 2501,
+    "attack" : 42,
+    "defense" : 12,
+    "damage" : 256
+}

@@ -7,7 +7,14 @@ set(SRC_LIST
     main
     game
     scene
+    data_reader
     scene_reader
+    destroyable
+    entity
+    entity_reader
+    creature
+    creature_reader
+    map
 )
 
 

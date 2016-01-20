@@ -1,4 +1,11 @@
 {
-    "title" : "Introduction"
+    "title" : "Introduction",
     
+    "creatures": [
+        {"name":"M", "type":"BBEG"}
+    ],
+    
+    "entities":[
+        "tree"
+    ]
 } 

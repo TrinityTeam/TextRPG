@@ -1,29 +1,25 @@
 #pragma once
-#include <memory>
-#include <json/reader.h>
-#include <fstream>
+#include "data_reader.hpp"
 #include "scene.hpp"
+#include "creature_reader.hpp"
 
 
-
-class SceneReader {
-    using unique_ptr =  std::unique_ptr<Scene>;
-
+#include <iostream>
+class SceneReader: public DataReader<Scene> {
 public:
-    SceneReader() = delete;
-    SceneReader(const SceneReader&) = delete;
-    SceneReader(SceneReader&&) = delete;
-
-    static unique_ptr readData(const std::string& filepath) {
-        Json::Value root;
-        std::ifstream in {filepath};
-        SceneReader::reader.parse(in, root, false);
+    static std::unique_ptr<Scene> readData(const std::string& filepath) {
+        Json::Value root = parseFile(filepath);
         auto scene = std::make_unique<Scene>(root["title"].asString());
-
+        scene->setDescription(root["description"].asString());
+        for(auto& creature_data: root["creatures"]) {
+            auto creature = CreatureReader::readData("../data/entities/creatures/"+
+                                                     creature_data["type"].asString()+".json");
+            //creature->setName(creature_data["name"].asString());
+            scene->addCreature(std::move(creature));
+        }
         return scene;
     }
 
 private:
-    static Json::Reader reader;
 
 };
