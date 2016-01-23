@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <memory>
+#include <map>
 #include <list>
 #include "creature.hpp"
 
@@ -15,10 +16,11 @@ public:
 
     const std::string& getTitle() const;
     const std::string& getDescription() const;
+    const Creature& getCreature(const std::string& name) const;
 
 private:
     std::string title;
     std::string description;
-    std::list<std::unique_ptr<Creature>> creatures;
-    std::list<std::unique_ptr<Entity>> objects;
+    std::map<std::string, std::unique_ptr<Creature>> creatures;
+    std::map<std::string, std::unique_ptr<Entity>> objects;
 };

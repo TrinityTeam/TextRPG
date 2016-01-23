@@ -1,5 +1,6 @@
 {
     "title" : "Introduction",
+    "description": "The immense white space",
     
     "creatures": [
         {"name":"M", "type":"BBEG"}

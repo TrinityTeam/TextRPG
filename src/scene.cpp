@@ -16,7 +16,7 @@ void Scene::setDescription(const std::string& description) {
 
 
 void Scene::addCreature(std::unique_ptr<Creature> creature) {
-    creatures.push_back(std::move(creature));
+    creatures.emplace(std::make_pair(creature->getName(), std::move(creature)));
 }
 
 
@@ -29,4 +29,10 @@ const std::string& Scene::getTitle() const {
 
 const std::string& Scene::getDescription() const {
     return description;
+}
+
+
+
+const Creature& Scene::getCreature(const std::string& name) const {
+    return *creatures.at(name);
 }

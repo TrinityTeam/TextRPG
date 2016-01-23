@@ -4,7 +4,7 @@
 #include "creature_reader.hpp"
 
 
-#include <iostream>
+
 class SceneReader: public DataReader<Scene> {
 public:
     static std::unique_ptr<Scene> readData(const std::string& filepath) {
@@ -14,7 +14,7 @@ public:
         for(auto& creature_data: root["creatures"]) {
             auto creature = CreatureReader::readData("../data/entities/creatures/"+
                                                      creature_data["type"].asString()+".json");
-            //creature->setName(creature_data["name"].asString());
+            creature->setName(creature_data["name"].asString());
             scene->addCreature(std::move(creature));
         }
         return scene;

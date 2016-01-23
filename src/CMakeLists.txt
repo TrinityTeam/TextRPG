@@ -15,6 +15,7 @@ set(SRC_LIST
     creature
     creature_reader
     map
+    command_parser
 )
 
 
