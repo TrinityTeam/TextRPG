@@ -23,6 +23,13 @@ CommandType CommandParser::getCommandType() const {
 
     } else if(type == "look") {
         return CommandType::Look;
+
+    } else if(type == "status") {
+        return CommandType::Status;
+
+    } else if(type == "attack") {
+        return CommandType::Attack;
+
     }
     return CommandType::Undefined;
 }
@@ -30,6 +37,11 @@ CommandType CommandParser::getCommandType() const {
 
 
 std::string CommandParser::getString(uint16_t id) const {
+    if(id >= argumentsNum) {
+        throw std::out_of_range {"Request " + std::to_string(id) + " argument, "
+                                 "but command had " +
+                                 std::to_string(argumentsNum-1) + " arguments"};
+    }
     std::stringstream command(last_command);
     std::string s {};
     for(uint16_t c = 0; c <= id; c++) {

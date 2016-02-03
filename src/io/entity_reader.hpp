@@ -1,6 +1,6 @@
 #pragma once
 #include "data_reader.hpp"
-#include "entity.hpp"
+#include "../logic/entity.hpp"
 
 
 

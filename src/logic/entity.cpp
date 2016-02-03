@@ -14,6 +14,12 @@ void Entity::setDescription(const std::string& description) {
 
 
 
+void Entity::setPosition(const Point& pos) {
+    position = pos;
+}
+
+
+
 const std::string& Entity::getType() const {
     return type;
 }
@@ -22,4 +28,10 @@ const std::string& Entity::getType() const {
 
 const std::string& Entity::getDescription() const {
     return description;
+}
+
+
+
+const Point& Entity::getPosition() const {
+    return position;
 }

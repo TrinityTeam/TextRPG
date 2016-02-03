@@ -1,5 +1,5 @@
 {
-    "type" : "Antagonist",
+    "type" : "BBEG",
     "description" : "It is Big, Bad and Evil.",
     "hp" : 2501,
     "attack" : 42,

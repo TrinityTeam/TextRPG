@@ -5,6 +5,7 @@
 
 Destroyable::Destroyable(uint16_t maxHP, uint16_t defence):
     maxHP {maxHP},
+    currentHP {maxHP},
     defense {defence} {
 }
 
@@ -17,10 +18,7 @@ void Destroyable::setDefense(uint16_t defense) {
 
 
 void Destroyable::damage(uint16_t damage, int16_t attack) {
-    std::default_random_engine generator;
-    std::uniform_int_distribution<int> distribution(1, attack);
-    auto roll = std::bind(distribution, generator);
-    if(roll() > defense) {
+    if(attack > defense) {
         reduceHP(damage);
     }
 }

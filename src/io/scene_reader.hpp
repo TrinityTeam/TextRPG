@@ -1,6 +1,6 @@
 #pragma once
 #include "data_reader.hpp"
-#include "scene.hpp"
+#include "../logic/scene.hpp"
 #include "creature_reader.hpp"
 
 
@@ -17,6 +17,12 @@ public:
             creature->setName(creature_data["name"].asString());
             scene->addCreature(std::move(creature));
         }
+        for(auto& entity_type: root["entities"]) {
+            auto entity = EntityReader::readData("../data/entities/"+
+                                                  entity_type.asString()+".json");
+            scene->addObject(std::move(entity));
+        }
+
         return scene;
     }
 

@@ -1,4 +1,6 @@
 #pragma once
+#include <map>
+#include "skill.hpp"
 #include "entity.hpp"
 #include "destroyable.hpp"
 
@@ -21,4 +23,6 @@ private:
 
     uint16_t attack {};
     uint16_t damage {};
+
+    std::map<std::string, Skill*> skills;
 };

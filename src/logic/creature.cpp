@@ -1,6 +1,7 @@
 #include "creature.hpp"
 #include <random>
 #include <functional>
+#include <iostream>
 
 
 
@@ -29,9 +30,10 @@ void Creature::setDamage(uint16_t damage) {
 
 
 void Creature::assault(Destroyable& target) {
-    std::default_random_engine generator;
-    std::uniform_int_distribution<int> distribution(damage/2, damage*1.5);
-    auto roll = std::bind(distribution, generator);
-
-    target.damage(roll(), attack);
+    std::random_device rand;
+    auto attack_roll = rand()%attack+attack/2;
+    auto damage_roll = rand()%damage+damage/2;
+    std::cout << "Attack roll: " << attack_roll
+              << "\nDamage roll: " << damage_roll << "\n";
+    target.damage(damage_roll, attack_roll);
 }

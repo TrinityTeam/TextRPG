@@ -1,7 +1,7 @@
 #include "game.hpp"
 #include <iostream>
-#include "command_parser.hpp"
-#include "scene_reader.hpp"
+#include "io/command_parser.hpp"
+#include "io/scene_reader.hpp"
 
 
 
@@ -40,3 +40,4 @@ void Game::start() {
         }
     }
 }
+ 
